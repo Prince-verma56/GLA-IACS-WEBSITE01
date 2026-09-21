@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { conference, navigation } from "@/lib/conference";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Globe } from "lucide-react";
 
 export function SiteFooter() {
   return (
@@ -57,11 +59,50 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/15">
-        <div className="shell flex flex-col gap-2 py-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2027 GLA University, Mathura. All rights reserved.</p>
-          <p>{conference.name} — IACS India Section</p>
+        <div className="shell flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-2 text-xs text-white/55">
+            <p>{conference.name} — IACS India Section</p>
+          </div>
+          
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="text-xs text-white/55">Developed by</span>
+            
+            <a 
+              href="https://anshumeshsaini.me" 
+              target="_blank" 
+              rel="noreferrer"
+              className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 pr-3 pl-1 py-1 transition-all hover:bg-white/10 hover:border-white/20"
+            >
+              <Avatar className="h-6 w-6 border border-white/20">
+                <AvatarFallback className="bg-primary text-[10px] text-white">AS</AvatarFallback>
+              </Avatar>
+              <span className="text-xs font-medium text-white/80 group-hover:text-white transition-colors flex items-center gap-1.5">
+                Anshumesh Saini
+                <Globe className="h-3 w-3 opacity-70 group-hover:opacity-100 transition-opacity" />
+              </span>
+            </a>
+
+            <a 
+              href="https://princevermadev26-portfolio.vercel.app/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 pr-3 pl-1 py-1 transition-all hover:bg-white/10 hover:border-white/20"
+            >
+              <Avatar className="h-6 w-6 border border-white/20">
+                <AvatarImage src="https://github.com/Prince-verma56.png" alt="Prince Sharma" />
+                <AvatarFallback className="bg-primary text-[10px] text-white">PS</AvatarFallback>
+              </Avatar>
+              <span className="text-xs font-medium text-white/80 group-hover:text-white transition-colors flex items-center gap-1.5">
+                Prince Sharma
+                <Globe className="h-3 w-3 opacity-70 group-hover:opacity-100 transition-opacity" />
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
+
+
+

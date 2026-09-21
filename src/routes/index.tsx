@@ -248,7 +248,7 @@ function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden pt-[84px] pb-24 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24">
       <img
-        src="/GLA Drone Shot.png"
+        src="/GLA Drone Shot2.jpeg"
         alt="GLA University campus, Mathura, drone shot"
         width={1920}
         height={1200}
