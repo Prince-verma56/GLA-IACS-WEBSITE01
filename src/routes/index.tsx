@@ -4,9 +4,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { HorizontalReveal, MaskReveal, TextReveal, StaggerReveal, ParallaxImage } from "@/components/motion/ScrollReveal";
 import { conference, keyDates, internationalSpeakers } from "@/lib/conference";
 import { ConcentricPulse, ScientificGrid, HeartbeatLine, PulseDivider } from "@/components/graphics/ConferenceGraphics";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import groupConf1 from "@/assets/Group Conf 1.jpeg";
+import groupConf2 from "@/assets/Group Conf 2.jpeg";
 
 gsap.registerPlugin(useGSAP);
 
@@ -228,6 +230,7 @@ function Home() {
         <Theme />
         <InfoStrip />
         <ImportantDates />
+        <ConferenceLaunchGallery />
         <SpeakerTeaser />
         <RegistrationCall />
         <CampusSection />
@@ -492,6 +495,183 @@ function RegistrationCall() {
           </StaggerReveal>
         </div>
       </div>
+    </section>
+  );
+}
+
+function ConferenceLaunchGallery() {
+  const [activePhoto, setActivePhoto] = useState<number | null>(null);
+
+  const galleryItems = [
+    {
+      src: groupConf1,
+      fallback: "/Group Conf 1.jpeg",
+      alt: "Brochure Release Ceremony — Organizing Committee Delegation at GLA University",
+      caption: "Organizing Committee Delegation · GLA University, Mathura",
+    },
+    {
+      src: groupConf2,
+      fallback: "/Group Conf 2.jpeg",
+      alt: "Brochure Release Ceremony — Executive Leadership & Organizers at GLA University",
+      caption: "Executive Leadership & Organizers · GLA University, Mathura",
+    },
+  ];
+
+  useEffect(() => {
+    if (activePhoto === null) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActivePhoto(null);
+      else if (e.key === "ArrowLeft")
+        setActivePhoto((prev) => (prev === 0 ? galleryItems.length - 1 : (prev ?? 0) - 1));
+      else if (e.key === "ArrowRight")
+        setActivePhoto((prev) => (prev === galleryItems.length - 1 ? 0 : (prev ?? 0) + 1));
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activePhoto, galleryItems.length]);
+
+  return (
+    <section className="relative overflow-hidden py-16 md:py-24 bg-background border-b border-rule">
+      <div className="shell">
+        {/* Simple, refined header with concise message */}
+        <div className="max-w-2xl mb-8 md:mb-12">
+          <HorizontalReveal>
+            <p className="eyebrow text-primary">Conference Gallery</p>
+          </HorizontalReveal>
+          <MaskReveal delay={0.08}>
+            <h2 className="display-md mt-3">Brochure Release Ceremony</h2>
+          </MaskReveal>
+          <TextReveal delay={0.15}>
+            <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
+              Organizing committee and leadership at GLA University, Mathura releasing the official brochure for IACS 2027.
+            </p>
+          </TextReveal>
+        </div>
+
+        {/* The 2 Images: Prominent 3:2 aspect ratio preserving complete group width */}
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+          {galleryItems.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => setActivePhoto(index)}
+              className="group relative cursor-pointer overflow-hidden rounded-xl border border-rule bg-muted shadow-sm transition-all duration-300 hover:shadow-xl hover:border-primary/40"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setActivePhoto(index);
+                }
+              }}
+              aria-label={`View photo ${index + 1}`}
+            >
+              <div className="relative aspect-[3/2] w-full overflow-hidden bg-muted">
+                <img
+                  src={item.src}
+                  onError={(e) => {
+                    const img = e.currentTarget as HTMLImageElement;
+                    if (img.src !== item.fallback) {
+                      img.src = item.fallback;
+                    }
+                  }}
+                  alt={item.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                />
+
+                {/* Subtle gradient overlay at bottom for caption legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90" />
+
+                {/* Minimal caption & expand indicator */}
+                <div className="absolute bottom-0 inset-x-0 p-4 md:p-5 flex items-center justify-between text-white">
+                  <p className="text-xs md:text-sm font-medium tracking-wide drop-shadow-md">
+                    {item.caption}
+                  </p>
+                  <span className="text-[11px] opacity-75 group-hover:opacity-100 transition-opacity inline-flex items-center gap-1 drop-shadow-md">
+                    Expand
+                    <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Lightbox Modal */}
+      {activePhoto !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-8 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={() => setActivePhoto(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="relative max-h-[92vh] max-w-6xl w-full flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="w-full flex items-center justify-between pb-3 text-white">
+              <p className="text-sm font-medium">
+                {galleryItems[activePhoto].caption}
+              </p>
+              <button
+                type="button"
+                onClick={() => setActivePhoto(null)}
+                className="rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
+                aria-label="Close modal"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="relative w-full overflow-hidden rounded-xl border border-white/15 bg-black/50 shadow-2xl">
+              <img
+                src={galleryItems[activePhoto].src}
+                onError={(e) => {
+                  const img = e.currentTarget as HTMLImageElement;
+                  if (img.src !== galleryItems[activePhoto].fallback) {
+                    img.src = galleryItems[activePhoto].fallback;
+                  }
+                }}
+                alt={galleryItems[activePhoto].alt}
+                className="w-full h-auto max-h-[75vh] object-contain mx-auto"
+              />
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActivePhoto((prev) => (prev === 0 ? galleryItems.length - 1 : (prev ?? 0) - 1));
+                }}
+                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/70 p-3 text-white hover:bg-primary transition-all backdrop-blur-sm"
+                aria-label="Previous photo"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActivePhoto((prev) => (prev === galleryItems.length - 1 ? 0 : (prev ?? 0) + 1));
+                }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/70 p-3 text-white hover:bg-primary transition-all backdrop-blur-sm"
+                aria-label="Next photo"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
