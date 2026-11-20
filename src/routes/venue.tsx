@@ -13,9 +13,10 @@ import { InternalPageHero } from "@/components/InternalPageHero";
 import { pageHeroes } from "@/lib/pageHeroes";
 import { cn } from "@/lib/utils";
 import { SectionTransition } from "@/components/editorial/SectionTransition";
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Download, ExternalLink, FileText, Phone } from "lucide-react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -25,13 +26,13 @@ export const Route = createFileRoute("/venue")({
       { title: "Sightseeing & Conference Venue — IACS 2027, GLA University Mathura" },
       {
         name: "description",
-        content: `Conference venue, campus information and sightseeing destinations for the ${conference.name} at GLA University, Mathura.`,
+        content: `Conference venue, accommodation guide and sightseeing destinations for the ${conference.name} at GLA University, Mathura.`,
       },
       { property: "og:title", content: "Sightseeing & Conference Venue — IACS 2027" },
       {
         property: "og:description",
         content:
-          "GLA University, Mathura — conference venue, sightseeing and destination guide for IACS 2027.",
+          "GLA University, Mathura — conference venue, budget hotels and destination guide for IACS 2027.",
       },
     ],
   }),
@@ -42,39 +43,43 @@ function Venue() {
   const [selectedDestination, setSelectedDestination] = useState(sightseeing[0]);
   const destGridRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!destGridRef.current) return;
-    
-    const cards = gsap.utils.toArray('.destination-card', destGridRef.current);
-    
-    gsap.fromTo(cards, 
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1, 
-        y: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: destGridRef.current,
-          start: "top 80%",
-          once: true,
-        }
-      }
-    );
-  }, { scope: destGridRef });
+  useGSAP(
+    () => {
+      if (!destGridRef.current) return;
+
+      const cards = gsap.utils.toArray(".destination-card", destGridRef.current);
+
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: destGridRef.current,
+            start: "top 80%",
+            once: true,
+          },
+        },
+      );
+    },
+    { scope: destGridRef },
+  );
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SiteHeader />
       <main>
         {/* ── HERO ─────────────────────────────────────────── */}
-        <InternalPageHero 
+        <InternalPageHero
           hero={{
             ...pageHeroes.venue,
-            eyebrow: "Explore Mathura",
-            title: "Sightseeing & Destinations",
-          }} 
+            eyebrow: "Explore Mathura & Venue",
+            title: "Venue & Sightseeing",
+          }}
         />
 
         {/* ── CONFERENCE VENUE ──────────────────────────────── */}
@@ -129,6 +134,108 @@ function Venue() {
 
         <SectionTransition variant="brush" />
 
+        {/* ── ACCOMMODATION & BUDGET HOTELS ────────────────── */}
+        <section
+          id="accommodation"
+          className="shell py-16 md:py-24 bg-surface/50 border-y border-rule relative z-10 scroll-mt-20"
+        >
+          <div className="max-w-4xl">
+            <HorizontalReveal>
+              <p className="eyebrow text-primary mb-3">Delegate Accommodation</p>
+            </HorizontalReveal>
+            <MaskReveal delay={0.1}>
+              <h2 className="display-md">Budget Hotels Near GLA University</h2>
+            </MaskReveal>
+            <TextReveal delay={0.2}>
+              <p className="mt-4 text-foreground/65 leading-relaxed">
+                The Accommodation Committee has compiled a verified directory of 15 budget hotels
+                and guest houses located between 1 Km and 18 Km from GLA University campus, with
+                room tariffs starting from ₹800.
+              </p>
+            </TextReveal>
+          </div>
+
+          <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-center">
+            {/* Download PDF Card */}
+            <div className="lg:col-span-7 bg-white border border-primary/20 rounded-xl p-6 md:p-8 shadow-sm space-y-4">
+              <div className="flex items-center gap-2 text-primary font-semibold text-xs tracking-wider uppercase">
+                <FileText className="w-4 h-4" /> Official Accommodation Circular
+              </div>
+              <h3 className="text-xl font-bold text-foreground">
+                Download Official Hotel Tariff & Contact List (PDF)
+              </h3>
+              <p className="text-sm text-foreground/70 leading-relaxed">
+                Access the complete 2-page document containing all 15 hotels, room occupancy tariffs
+                (Single, Double, Triple, Four), full addresses, manager contact numbers, and
+                Accommodation Committee helpdesks.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href="/docs/IACS_2027_Accommodation_Guide.pdf"
+                  download="IACS-2027-Accommodation-Guide.pdf"
+                  className="btn-solid inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-wider font-semibold"
+                >
+                  <Download className="w-4 h-4" /> Download PDF
+                </a>
+                <a
+                  href="/docs/IACS_2027_Accommodation_Guide.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 text-xs uppercase tracking-wider font-semibold border border-primary/30 text-primary hover:bg-primary/5 rounded transition-all"
+                >
+                  <ExternalLink className="w-4 h-4" /> View PDF
+                </a>
+                <Link
+                  to="/accommodation"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 text-xs uppercase tracking-wider font-semibold bg-surface border border-rule text-foreground/80 hover:text-primary rounded transition-all"
+                >
+                  Explore All 15 Hotels →
+                </Link>
+              </div>
+            </div>
+
+            {/* Helpline quick card */}
+            <div className="lg:col-span-5 bg-primary-deep text-white rounded-xl p-6 md:p-8 space-y-4 shadow-sm">
+              <p className="text-xs font-semibold tracking-wider uppercase text-white/60">
+                Accommodation Committee
+              </p>
+              <h4 className="text-lg font-bold">Need Help with Bookings?</h4>
+              <p className="text-xs text-white/70 leading-relaxed">
+                Feel free to reach out to our Accommodation Committee coordinators for assistance
+                with reservations, directions, or special requirements:
+              </p>
+              <div className="space-y-3 pt-1 text-xs">
+                <div className="border-t border-white/10 pt-2.5">
+                  <p className="font-semibold text-white">Dr. Bhupesh Chander Semwal</p>
+                  <div className="flex items-center gap-3 mt-1 text-white/80">
+                    <a href="tel:9410575712" className="hover:underline flex items-center gap-1">
+                      <Phone className="w-3 h-3 text-white/60" /> +91 9410575712
+                    </a>
+                    <span>•</span>
+                    <a href="mailto:bhupesh.semwal@gla.ac.in" className="hover:underline">
+                      Email
+                    </a>
+                  </div>
+                </div>
+                <div className="border-t border-white/10 pt-2.5">
+                  <p className="font-semibold text-white">Dr. Vibhav Varshney</p>
+                  <div className="flex items-center gap-3 mt-1 text-white/80">
+                    <a href="tel:7417540181" className="hover:underline flex items-center gap-1">
+                      <Phone className="w-3 h-3 text-white/60" /> +91 7417540181
+                    </a>
+                    <span>•</span>
+                    <a href="mailto:vibhav.varshney@gla.ac.in" className="hover:underline">
+                      Email
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <SectionTransition variant="brush" />
+
         {/* ── DESTINATIONS GRID ─────────────────────────────── */}
         <section className="bg-[#f0f2f5] relative pt-8 pb-20 md:pt-12 md:pb-28 overflow-hidden">
           <MedicalEditorialMotif />
@@ -148,10 +255,7 @@ function Venue() {
               </TextReveal>
             </div>
 
-            <div 
-              ref={destGridRef} 
-              className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
-            >
+            <div ref={destGridRef} className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {sightseeing.map((item, i) => (
                 <div key={item.place} className="destination-card group flex flex-col opacity-0">
                   <div className="flex items-center justify-between mb-4">
@@ -159,42 +263,45 @@ function Venue() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  
+
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md bg-white border border-black/5 shadow-sm mb-5">
                     {/* Placeholder for missing images */}
                     <div className="absolute inset-0 flex items-center justify-center bg-primary/5 text-primary/30 border border-primary/10">
                       <span className="text-xs font-medium uppercase tracking-widest text-center px-4">
-                        Image Placeholder<br/><span className="lowercase text-[10px]">({item.place})</span>
+                        Image Placeholder
+                        <br />
+                        <span className="lowercase text-[10px]">({item.place})</span>
                       </span>
                     </div>
-                    
-                    <img 
-                      src={item.image} 
+
+                    <img
+                      src={item.image}
                       alt={`${item.place} in ${item.city}`}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 z-10"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
+                        (e.target as HTMLImageElement).style.display = "none";
                       }}
                       loading="lazy"
                     />
                   </div>
-                  
+
                   <h3 className="text-xl font-semibold tracking-tight text-foreground mb-1">
                     {item.place}
                   </h3>
-                  <p className="text-sm text-foreground/60 mb-4">
-                    {item.city}
-                  </p>
-                  
+                  <p className="text-sm text-foreground/60 mb-4">{item.city}</p>
+
                   <div className="mt-auto pt-4 border-t border-rule/50">
-                    <a 
+                    <a
                       href={item.mapUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`View ${item.place} on Google Maps`}
                       className="text-sm text-primary font-medium flex items-center transition-transform group-hover:translate-x-1"
                     >
-                      Explore location <span aria-hidden className="ml-1">→</span>
+                      Explore location{" "}
+                      <span aria-hidden className="ml-1">
+                        →
+                      </span>
                     </a>
                   </div>
                 </div>
@@ -217,7 +324,7 @@ function Venue() {
               </MaskReveal>
               <TextReveal delay={0.2}>
                 <p className="mt-4 text-foreground/60 max-w-2xl">
-                  Explore destinations around Mathura, Vrindavan, Agra, and the surrounding region. 
+                  Explore destinations around Mathura, Vrindavan, Agra, and the surrounding region.
                   Select a location from the list to view it on the map.
                 </p>
               </TextReveal>
@@ -241,19 +348,27 @@ function Venue() {
                               onClick={() => setSelectedDestination(item)}
                               className={cn(
                                 "w-full text-left px-5 py-4 transition-colors flex items-start gap-4",
-                                isActive 
-                                  ? "bg-primary/5 relative" 
-                                  : "hover:bg-muted/50"
+                                isActive ? "bg-primary/5 relative" : "hover:bg-muted/50",
                               )}
                             >
                               {isActive && (
                                 <span className="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-r-full" />
                               )}
-                              <span className={cn("eyebrow shrink-0 pt-0.5 tabular-nums", isActive ? "text-primary" : "text-muted-foreground")}>
+                              <span
+                                className={cn(
+                                  "eyebrow shrink-0 pt-0.5 tabular-nums",
+                                  isActive ? "text-primary" : "text-muted-foreground",
+                                )}
+                              >
                                 {String(i + 1).padStart(2, "0")}
                               </span>
                               <div>
-                                <strong className={cn("block font-medium", isActive ? "text-primary" : "text-foreground")}>
+                                <strong
+                                  className={cn(
+                                    "block font-medium",
+                                    isActive ? "text-primary" : "text-foreground",
+                                  )}
+                                >
                                   {item.place}
                                 </strong>
                                 <span className="block mt-0.5 text-xs text-foreground/60">
@@ -323,19 +438,22 @@ function Venue() {
 
 function MedicalEditorialMotif() {
   return (
-    <div className="absolute inset-0 pointer-events-none opacity-[0.04] overflow-hidden" aria-hidden="true">
+    <div
+      className="absolute inset-0 pointer-events-none opacity-[0.04] overflow-hidden"
+      aria-hidden="true"
+    >
       <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 800">
-        <path 
-          d="M-100,200 C300,150 400,450 600,400 C700,380 750,300 800,300 L820,250 L840,400 L860,200 L880,350 L900,300 C1100,300 1200,600 1500,500" 
-          fill="none" 
-          stroke="currentColor" 
+        <path
+          d="M-100,200 C300,150 400,450 600,400 C700,380 750,300 800,300 L820,250 L840,400 L860,200 L880,350 L900,300 C1100,300 1200,600 1500,500"
+          fill="none"
+          stroke="currentColor"
           strokeWidth="1.5"
           vectorEffect="non-scaling-stroke"
         />
-        <path 
-          d="M-100,600 C200,650 300,350 500,400 C600,420 650,500 700,500 L720,550 L740,400 L760,600 L780,450 L800,500 C1000,500 1100,200 1500,300" 
-          fill="none" 
-          stroke="currentColor" 
+        <path
+          d="M-100,600 C200,650 300,350 500,400 C600,420 650,500 700,500 L720,550 L740,400 L760,600 L780,450 L800,500 C1000,500 1100,200 1500,300"
+          fill="none"
+          stroke="currentColor"
           strokeWidth="0.5"
           vectorEffect="non-scaling-stroke"
         />

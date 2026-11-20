@@ -49,6 +49,13 @@ export const pageHeroes = {
     image: "/images/Bg images/About/GLA Drone Shot2.png",
     imageAlt: "Professional medical conference registration desk",
   },
+  accommodation: {
+    eyebrow: "Delegate Stay & Logistics",
+    title: "Accommodation & Hotels",
+    description: "Curated budget hotels and guest houses near GLA University, Mathura with verified tariffs and contacts for IACS 2027 attendees.",
+    image: "/images/Bg images/About/GLA Drone Shot2.png",
+    imageAlt: "GLA University campus and Mathura accommodation",
+  },
   sponsorship: {
     eyebrow: "Partnership Opportunities",
     title: "Sponsorship",

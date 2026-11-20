@@ -788,9 +788,14 @@ function CampusSection() {
               </p>
             </TextReveal>
             <TextReveal delay={0.3}>
-              <Link to="/venue" className="link-arrow mt-9 inline-block">
-                Discover Mathura <span aria-hidden>→</span>
-              </Link>
+              <div className="flex flex-wrap items-center gap-6 mt-9">
+                <Link to="/venue" className="link-arrow inline-block">
+                  Discover Mathura <span aria-hidden>→</span>
+                </Link>
+                <Link to="/accommodation" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline">
+                  Budget Hotels & Accommodation →
+                </Link>
+              </div>
             </TextReveal>
           </div>
         </div>

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AbstractsRouteImport } from './routes/abstracts'
+import { Route as AccommodationRouteImport } from './routes/accommodation'
 import { Route as AwardsRouteImport } from './routes/awards'
 import { Route as CommitteeRouteImport } from './routes/committee'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -35,6 +36,11 @@ const AboutRoute = AboutRouteImport.update({
 const AbstractsRoute = AbstractsRouteImport.update({
   id: '/abstracts',
   path: '/abstracts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccommodationRoute = AccommodationRouteImport.update({
+  id: '/accommodation',
+  path: '/accommodation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AwardsRoute = AwardsRouteImport.update({
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/abstracts': typeof AbstractsRoute
+  '/accommodation': typeof AccommodationRoute
   '/awards': typeof AwardsRoute
   '/committee': typeof CommitteeRoute
   '/contact': typeof ContactRoute
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/abstracts': typeof AbstractsRoute
+  '/accommodation': typeof AccommodationRoute
   '/awards': typeof AwardsRoute
   '/committee': typeof CommitteeRoute
   '/contact': typeof ContactRoute
@@ -116,6 +124,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/abstracts': typeof AbstractsRoute
+  '/accommodation': typeof AccommodationRoute
   '/awards': typeof AwardsRoute
   '/committee': typeof CommitteeRoute
   '/contact': typeof ContactRoute
@@ -132,6 +141,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/abstracts'
+    | '/accommodation'
     | '/awards'
     | '/committee'
     | '/contact'
@@ -146,6 +156,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/abstracts'
+    | '/accommodation'
     | '/awards'
     | '/committee'
     | '/contact'
@@ -160,6 +171,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/abstracts'
+    | '/accommodation'
     | '/awards'
     | '/committee'
     | '/contact'
@@ -175,6 +187,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AbstractsRoute: typeof AbstractsRoute
+  AccommodationRoute: typeof AccommodationRoute
   AwardsRoute: typeof AwardsRoute
   CommitteeRoute: typeof CommitteeRoute
   ContactRoute: typeof ContactRoute
@@ -207,6 +220,13 @@ declare module '@tanstack/react-router' {
       path: '/abstracts'
       fullPath: '/abstracts'
       preLoaderRoute: typeof AbstractsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accommodation': {
+      id: '/accommodation'
+      path: '/accommodation'
+      fullPath: '/accommodation'
+      preLoaderRoute: typeof AccommodationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/awards': {
@@ -279,6 +299,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AbstractsRoute: AbstractsRoute,
+  AccommodationRoute: AccommodationRoute,
   AwardsRoute: AwardsRoute,
   CommitteeRoute: CommitteeRoute,
   ContactRoute: ContactRoute,

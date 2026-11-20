@@ -115,7 +115,7 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
             >
               <div
                 role="menuitem"
-                className="flex flex-col px-5 py-4 border-b border-border/60 bg-accent/5 transition-colors hover:bg-accent/10"
+                className="flex flex-col px-5 py-3.5 border-b border-border/60 bg-accent/5 transition-colors hover:bg-accent/10"
               >
                 <a
                   href="/docs/IACS%20Conference_2027_Leaf.pdf"
@@ -126,23 +126,63 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
                 >
                   <svg
                     className="mt-0.5 shrink-0 text-primary opacity-80 transition-transform duration-200 group-hover:-translate-y-0.5"
-                    width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
                   >
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
                   </svg>
                   <div className="flex-1">
-                    <div className="font-medium text-primary text-[0.9375rem] whitespace-nowrap">Conference Brochure</div>
-                    <div className="text-[0.8125rem] text-foreground/50 mt-0.5 whitespace-nowrap">Official IACS 2027 PDF</div>
+                    <div className="font-medium text-primary text-[0.875rem] whitespace-nowrap">Conference Brochure</div>
+                    <div className="text-[0.75rem] text-foreground/50 mt-0.5 whitespace-nowrap">Official IACS 2027 PDF</div>
                   </div>
                 </a>
-                <div className="flex items-center gap-3 pl-8 mt-3.5 text-[0.8125rem] font-medium whitespace-nowrap">
-                  <a href="/docs/IACS%20Conference_2027_Leaf.pdf" target="_blank" rel="noopener noreferrer" className="text-primary flex items-center gap-1.5 hover:underline">
-                    View PDF <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                <div className="flex items-center gap-3 pl-7 mt-2.5 text-[0.75rem] font-medium whitespace-nowrap">
+                  <a href="/docs/IACS%20Conference_2027_Leaf.pdf" target="_blank" rel="noopener noreferrer" className="text-primary flex items-center gap-1 hover:underline">
+                    View PDF <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                   </a>
                   <span className="text-foreground/30">|</span>
-                  <a href="/docs/IACS%20Conference_2027_Leaf.pdf" download="IACS-Conference-2027-Brochure.pdf" className="text-primary flex items-center gap-1.5 hover:underline" aria-label="Download IACS 2027 Conference Brochure PDF">
-                    Download <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                  <a href="/docs/IACS%20Conference_2027_Leaf.pdf" download="IACS-Conference-2027-Brochure.pdf" className="text-primary flex items-center gap-1 hover:underline" aria-label="Download IACS 2027 Conference Brochure PDF">
+                    Download <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+
+              <div
+                role="menuitem"
+                className="flex flex-col px-5 py-3.5 border-b border-border/60 bg-accent/5 transition-colors hover:bg-accent/10"
+              >
+                <a
+                  href="/docs/IACS_2027_Accommodation_Guide.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 group"
+                  aria-label="Open IACS 2027 Budget Hotels & Accommodation PDF"
+                >
+                  <svg
+                    className="mt-0.5 shrink-0 text-primary opacity-80 transition-transform duration-200 group-hover:-translate-y-0.5"
+                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+                  >
+                    <path d="M3 21h18"></path>
+                    <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                    <path d="M9 9h1"></path>
+                    <path d="M9 13h1"></path>
+                    <path d="M9 17h1"></path>
+                    <path d="M14 9h1"></path>
+                    <path d="M14 13h1"></path>
+                    <path d="M14 17h1"></path>
+                  </svg>
+                  <div className="flex-1">
+                    <div className="font-medium text-primary text-[0.875rem] whitespace-nowrap">Accommodation Guide</div>
+                    <div className="text-[0.75rem] text-foreground/50 mt-0.5 whitespace-nowrap">Budget Hotels & Tariffs PDF</div>
+                  </div>
+                </a>
+                <div className="flex items-center gap-3 pl-7 mt-2.5 text-[0.75rem] font-medium whitespace-nowrap">
+                  <a href="/docs/IACS_2027_Accommodation_Guide.pdf" target="_blank" rel="noopener noreferrer" className="text-primary flex items-center gap-1 hover:underline">
+                    View PDF <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </a>
+                  <span className="text-foreground/30">|</span>
+                  <a href="/docs/IACS_2027_Accommodation_Guide.pdf" download="IACS-2027-Accommodation-Guide.pdf" className="text-primary flex items-center gap-1 hover:underline" aria-label="Download IACS 2027 Accommodation Guide PDF">
+                    Download <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
                   </a>
                 </div>
               </div>
@@ -240,7 +280,7 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
               </Link>
             ))}
 
-            <div className="py-4 border-b border-border/70">
+            <div className="py-3 border-b border-border/70">
               <a
                 href="/docs/IACS%20Conference_2027_Leaf.pdf"
                 target="_blank"
@@ -250,7 +290,7 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
               >
                 <svg
                   className="shrink-0 text-primary opacity-90 transition-transform duration-200 group-hover:-translate-y-0.5"
-                  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+                  width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
                 >
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
@@ -260,13 +300,50 @@ export function SiteHeader({ overHero = false }: { overHero?: boolean }) {
                   <div className="text-xs text-foreground/60 mt-0.5">Official IACS 2027 PDF</div>
                 </div>
               </a>
-              <div className="flex items-center gap-4 pl-[2rem] mt-3 text-[0.8rem] font-medium">
+              <div className="flex items-center gap-4 pl-[1.875rem] mt-2.5 text-[0.8rem] font-medium">
                   <a href="/docs/IACS%20Conference_2027_Leaf.pdf" target="_blank" rel="noopener noreferrer" className="text-primary flex items-center gap-1 hover:underline">
-                    View PDF <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    View PDF <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                   </a>
                   <span className="text-foreground/40">|</span>
                   <a href="/docs/IACS%20Conference_2027_Leaf.pdf" download="IACS-Conference-2027-Brochure.pdf" className="text-primary flex items-center gap-1 hover:underline" aria-label="Download IACS 2027 Conference Brochure PDF">
-                    Download <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                    Download <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                  </a>
+              </div>
+            </div>
+
+            <div className="py-3 border-b border-border/70">
+              <a
+                href="/docs/IACS_2027_Accommodation_Guide.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 group"
+                aria-label="Open IACS 2027 Budget Hotels & Accommodation PDF"
+              >
+                <svg
+                  className="shrink-0 text-primary opacity-90 transition-transform duration-200 group-hover:-translate-y-0.5"
+                  width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+                >
+                  <path d="M3 21h18"></path>
+                  <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                  <path d="M9 9h1"></path>
+                  <path d="M9 13h1"></path>
+                  <path d="M9 17h1"></path>
+                  <path d="M14 9h1"></path>
+                  <path d="M14 13h1"></path>
+                  <path d="M14 17h1"></path>
+                </svg>
+                <div className="flex-1">
+                  <div className="text-sm font-medium text-primary">Accommodation Guide</div>
+                  <div className="text-xs text-foreground/60 mt-0.5">Budget Hotels & Tariffs PDF</div>
+                </div>
+              </a>
+              <div className="flex items-center gap-4 pl-[1.875rem] mt-2.5 text-[0.8rem] font-medium">
+                  <a href="/docs/IACS_2027_Accommodation_Guide.pdf" target="_blank" rel="noopener noreferrer" className="text-primary flex items-center gap-1 hover:underline">
+                    View PDF <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </a>
+                  <span className="text-foreground/40">|</span>
+                  <a href="/docs/IACS_2027_Accommodation_Guide.pdf" download="IACS-2027-Accommodation-Guide.pdf" className="text-primary flex items-center gap-1 hover:underline" aria-label="Download IACS 2027 Accommodation Guide PDF">
+                    Download <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
                   </a>
               </div>
             </div>

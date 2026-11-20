@@ -18,7 +18,7 @@ export const conference = {
   phone: "+91 9756866042",
   registrationFormUrl:
     "https://docs.google.com/forms/d/11WC95Z6VY8R4Nln3Y9OIjMwFWVJVIdiw6x-3ONuJnXU/viewform",
-  
+
   // Image Configuration for the About Page
   aboutAcademyImage: "/images/Bg images/About/About Sec1.png", // Leave empty to use SVG placeholder
   aboutInstituteImage: "/images/Bg images/About/About Sec2.png", // Leave empty to use SVG placeholder
@@ -42,6 +42,7 @@ export const navigation = [
   { label: "Abstracts", to: "/abstracts" },
   { label: "Awards & Orations", to: "/awards" },
   { label: "Registration", to: "/registration" },
+  { label: "Accommodation", to: "/accommodation" },
   { label: "Sponsorship", to: "/sponsorship" },
   { label: "Sightseeing", to: "/venue" },
   { label: "Contact", to: "/contact" },
@@ -170,29 +171,42 @@ export const leadership: { group: string; people: Person[] }[] = [
   {
     group: "Co-Organizing Secretaries",
     people: [
-      { 
-        name: "Prof. (Dr.) Prabhat K. Upadhyay", 
+      {
+        name: "Prof. (Dr.) Prabhat K. Upadhyay",
         phone: "+91 9690088979",
-        image: "/People Images/Co-Organizing & Joint Secretaries/Prof. (Dr.) Prabhat K. Upadhyay.png"
+        image:
+          "/People Images/Co-Organizing & Joint Secretaries/Prof. (Dr.) Prabhat K. Upadhyay.png",
       },
-      { 
-        name: "Dr. Yogesh Murti", 
+      {
+        name: "Dr. Yogesh Murti",
         phone: "+91 8006240340",
-        image: "/People Images/Co-Organizing & Joint Secretaries/Dr. Yogesh Murti.jpeg"
+        image: "/People Images/Co-Organizing & Joint Secretaries/Dr. Yogesh Murti.jpeg",
       },
-      { 
-        name: "Dr. Jitendra Gupta", 
+      {
+        name: "Dr. Jitendra Gupta",
         phone: "+91 8979136611",
-        image: "/People Images/Co-Organizing & Joint Secretaries/Dr. Jitendra Gupta.png"
+        image: "/People Images/Co-Organizing & Joint Secretaries/Dr. Jitendra Gupta.png",
       },
     ],
   },
   {
     group: "Joint Secretaries",
     people: [
-      { name: "Dr. Ahsas Goyal", phone: "+91 9012204640", image: "/People Images/Co-Organizing & Joint Secretaries/Dr. Ahsas Goyal.png" },
-      { name: "Dr. Niraj Kumar Singh", phone: "+91 8475985031", image: "/People Images/Co-Organizing & Joint Secretaries/Dr. Niraj Kumar Singh.png" },
-      { name: "Dr. Vibhav Varshney", phone: "+91 7417540181", image: "/People Images/Co-Organizing & Joint Secretaries/Dr. Vibhav Varshney.png" },
+      {
+        name: "Dr. Ahsas Goyal",
+        phone: "+91 9012204640",
+        image: "/People Images/Co-Organizing & Joint Secretaries/Dr. Ahsas Goyal.png",
+      },
+      {
+        name: "Dr. Niraj Kumar Singh",
+        phone: "+91 8475985031",
+        image: "/People Images/Co-Organizing & Joint Secretaries/Dr. Niraj Kumar Singh.png",
+      },
+      {
+        name: "Dr. Vibhav Varshney",
+        phone: "+91 7417540181",
+        image: "/People Images/Co-Organizing & Joint Secretaries/Dr. Vibhav Varshney.png",
+      },
     ],
   },
 ];
@@ -204,9 +218,24 @@ export const scientificAdvisors: Person[] = [
     org: "Dr. Ram Manohar Lohia Hospital, New Delhi, India",
     image: "/People Images/Distinguished Scientific Advisors/Dr. Dinesh Kumar.png",
   },
-  { name: "Dr. Akhil Sharma", role: "Department of Cardiology", org: "KGMU, Lucknow, India", image: "/People Images/Distinguished Scientific Advisors/Dr. Akhil Sharma.png" },
-  { name: "Dr. Satyavir Yadav", role: "Department of Cardiology", org: "AIIMS, New Delhi, India", image: "/People Images/Distinguished Scientific Advisors/Dr. Satyavir Yadav.png" },
-  { name: "Dr. Raj Kumar", role: "Department of Physiology", org: "AIIMS, New Delhi, India", image: "/People Images/Distinguished Scientific Advisors/Dr. Raj Kumar.png" },
+  {
+    name: "Dr. Akhil Sharma",
+    role: "Department of Cardiology",
+    org: "KGMU, Lucknow, India",
+    image: "/People Images/Distinguished Scientific Advisors/Dr. Akhil Sharma.png",
+  },
+  {
+    name: "Dr. Satyavir Yadav",
+    role: "Department of Cardiology",
+    org: "AIIMS, New Delhi, India",
+    image: "/People Images/Distinguished Scientific Advisors/Dr. Satyavir Yadav.png",
+  },
+  {
+    name: "Dr. Raj Kumar",
+    role: "Department of Physiology",
+    org: "AIIMS, New Delhi, India",
+    image: "/People Images/Distinguished Scientific Advisors/Dr. Raj Kumar.png",
+  },
   {
     name: "Dr. Mayank Yadav",
     role: "Cardio-Thoracic Sciences Centre (CTVS)",
@@ -234,22 +263,50 @@ export const eminentPanel: Person[] = [
     org: "Institute of Liver & Biliary Sciences, New Delhi",
     image: "/People Images/Eminent Scientific Advisory Panel/Prof. N.K. Ganguly.png",
   },
-  { name: "Dr. Padam Singh", role: "Ex-Additional DG, ICMR", org: "India", image: "/People Images/Eminent Scientific Advisory Panel/Dr. Padam Singh.png" },
-  { name: "Dr. Y.K. Gupta", role: "President, AIIMS Kalyani", org: "India", image: "/People Images/Eminent Scientific Advisory Panel/Dr. Y.K. Gupta.png" },
-  { name: "Dr. Prakash V. Diwan", role: "Founder Director, NIPER", org: "Hyderabad, India", image: "/People Images/Eminent Scientific Advisory Panel/Dr. Prakash V. Diwan.png" },
-  { name: "Dr. CC Kartha", role: "Past President, IACS – India Section", image: "/People Images/Eminent Scientific Advisory Panel/Dr. CC Kartha.png" },
-  { name: "Dr. Neeraj Parakh", role: "Department of Cardiology", org: "AIIMS, New Delhi, India", image: "/People Images/Eminent Scientific Advisory Panel/Dr. Neeraj Parakh.png" },
+  {
+    name: "Dr. Padam Singh",
+    role: "Ex-Additional DG, ICMR",
+    org: "India",
+    image: "/People Images/Eminent Scientific Advisory Panel/Dr. Padam Singh.png",
+  },
+  {
+    name: "Dr. Y.K. Gupta",
+    role: "President, AIIMS Kalyani",
+    org: "India",
+    image: "/People Images/Eminent Scientific Advisory Panel/Dr. Y.K. Gupta.png",
+  },
+  {
+    name: "Dr. Prakash V. Diwan",
+    role: "Founder Director, NIPER",
+    org: "Hyderabad, India",
+    image: "/People Images/Eminent Scientific Advisory Panel/Dr. Prakash V. Diwan.png",
+  },
+  {
+    name: "Dr. CC Kartha",
+    role: "Past President, IACS – India Section",
+    image: "/People Images/Eminent Scientific Advisory Panel/Dr. CC Kartha.png",
+  },
+  {
+    name: "Dr. Neeraj Parakh",
+    role: "Department of Cardiology",
+    org: "AIIMS, New Delhi, India",
+    image: "/People Images/Eminent Scientific Advisory Panel/Dr. Neeraj Parakh.png",
+  },
   {
     name: "Dr. Samir Malhotra",
     role: "Department of Pharmacology",
     org: "PGIMER, Chandigarh, India",
     image: "/People Images/Eminent Scientific Advisory Panel/Dr. Samir Malhotra.png",
   },
-  { name: "Dr. Nirmal Singh", org: "Punjabi University Patiala, Punjab, India", image: "/People Images/Eminent Scientific Advisory Panel/Dr. Nirmal Singh.png" },
+  {
+    name: "Dr. Nirmal Singh",
+    org: "Punjabi University Patiala, Punjab, India",
+    image: "/People Images/Eminent Scientific Advisory Panel/Dr. Nirmal Singh.png",
+  },
 ];
 
 export const internationalSpeakers: Person[] = [
-      {
+  {
     name: "Prof. Naranjan S. Dhalla",
     role: "Distinguished Professor, Max Rady College of Medicine",
     org: "University of Manitoba, Canada",
@@ -296,8 +353,8 @@ export const internationalSpeakers: Person[] = [
     org: "Centrocor-Heart Clinic Ltd., Vitória, ES, Brazil",
     image: "/People Images/International Speakers/Dr. Melchior Luiz Lima.png",
   },
-  { 
-    name: "Dr. Antoinette Oliveira Blackman", 
+  {
+    name: "Dr. Antoinette Oliveira Blackman",
     org: "Brazil",
     image: "/People Images/International Speakers/Dr. Antoinette Oliveira Blackman.png",
   },
@@ -722,15 +779,78 @@ export const sponsorTiers = [
 ];
 
 export const sightseeing = [
-  { place: "Taj Mahal", city: "Agra", image: "/images/Bg images/Locations/Taj Mahal.png", mapQuery: "Taj+Mahal,Agra", mapUrl: "https://www.google.com/maps/search/?api=1&query=Taj+Mahal%2C+Agra%2C+Uttar+Pradesh%2C+India" },
-  { place: "Fatehpur Sikri", city: "Agra", image: "/images/Bg images/Locations/Fatehpur Sikri.png", mapQuery: "Fatehpur+Sikri,Agra", mapUrl: "https://www.google.com/maps/search/?api=1&query=Fatehpur+Sikri%2C+Agra%2C+Uttar+Pradesh%2C+India" },
-  { place: "Bankey Bihari", city: "Vrindavan", image: "/images/Bg images/Locations/Bankey Bihari.png", mapQuery: "Shri+Bankey+Bihari+Temple,Vrindavan", mapUrl: "https://www.google.com/maps/search/?api=1&query=Bankey+Bihari+Temple%2C+Vrindavan%2C+Uttar+Pradesh%2C+India" },
-  { place: "Shri Krishna Janmabhoomi", city: "Mathura", image: "/images/Bg images/Locations/Shri Krishna Janmabhoomi.png", mapQuery: "Shri+Krishna+Janmasthan+Temple,Mathura", mapUrl: "https://www.google.com/maps/search/?api=1&query=Shri+Krishna+Janmabhoomi+Temple%2C+Mathura%2C+Uttar+Pradesh%2C+India" },
-  { place: "Prem Mandir", city: "Vrindavan", image: "/images/Bg images/Locations/Prem Mandir.png", mapQuery: "Prem+Mandir,Vrindavan", mapUrl: "https://www.google.com/maps/search/?api=1&query=Prem+Mandir%2C+Vrindavan%2C+Uttar+Pradesh%2C+India" },
-  { place: "Radha Rani", city: "Barsana", image: "/images/Bg images/Locations/Radha Rani Barsana.png", mapQuery: "Shri+Radha+Rani+Temple,Barsana", mapUrl: "https://www.google.com/maps/search/?api=1&query=Radha+Rani+Temple%2C+Barsana%2C+Uttar+Pradesh%2C+India" },
-  { place: "Dhanghati", city: "Goverdhan", image: "/images/Bg images/Locations/Dhanghati Goverdhan.png", mapQuery: "Daan+Ghati+Mandir,Govardhan", mapUrl: "https://www.google.com/maps/search/?api=1&query=Daan+Ghati+Mandir%2C+Govardhan%2C+Uttar+Pradesh%2C+India" },
-  { place: "Nand Mahal", city: "Gokul", image: "/images/Bg images/Locations/Nand Mahal.png", mapQuery: "Nand+Bhawan,Gokul", mapUrl: "https://www.google.com/maps/search/?api=1&query=Nand+Bhawan%2C+Gokul%2C+Uttar+Pradesh%2C+India" },
-  { place: "Nandgaon Temple", city: "Nandgaon", image: "/images/Bg images/Locations/Nandgaon Temple Nandgaon.png", mapQuery: "Nandagram+Temple,Nandgaon", mapUrl: "https://www.google.com/maps/search/?api=1&query=Nandagram+Temple%2C+Nandgaon%2C+Uttar+Pradesh%2C+India" },
+  {
+    place: "Taj Mahal",
+    city: "Agra",
+    image: "/images/Bg images/Locations/Taj Mahal.png",
+    mapQuery: "Taj+Mahal,Agra",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Taj+Mahal%2C+Agra%2C+Uttar+Pradesh%2C+India",
+  },
+  {
+    place: "Fatehpur Sikri",
+    city: "Agra",
+    image: "/images/Bg images/Locations/Fatehpur Sikri.png",
+    mapQuery: "Fatehpur+Sikri,Agra",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Fatehpur+Sikri%2C+Agra%2C+Uttar+Pradesh%2C+India",
+  },
+  {
+    place: "Bankey Bihari",
+    city: "Vrindavan",
+    image: "/images/Bg images/Locations/Bankey Bihari.png",
+    mapQuery: "Shri+Bankey+Bihari+Temple,Vrindavan",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Bankey+Bihari+Temple%2C+Vrindavan%2C+Uttar+Pradesh%2C+India",
+  },
+  {
+    place: "Shri Krishna Janmabhoomi",
+    city: "Mathura",
+    image: "/images/Bg images/Locations/Shri Krishna Janmabhoomi.png",
+    mapQuery: "Shri+Krishna+Janmasthan+Temple,Mathura",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Shri+Krishna+Janmabhoomi+Temple%2C+Mathura%2C+Uttar+Pradesh%2C+India",
+  },
+  {
+    place: "Prem Mandir",
+    city: "Vrindavan",
+    image: "/images/Bg images/Locations/Prem Mandir.png",
+    mapQuery: "Prem+Mandir,Vrindavan",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Prem+Mandir%2C+Vrindavan%2C+Uttar+Pradesh%2C+India",
+  },
+  {
+    place: "Radha Rani",
+    city: "Barsana",
+    image: "/images/Bg images/Locations/Radha Rani Barsana.png",
+    mapQuery: "Shri+Radha+Rani+Temple,Barsana",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Radha+Rani+Temple%2C+Barsana%2C+Uttar+Pradesh%2C+India",
+  },
+  {
+    place: "Dhanghati",
+    city: "Goverdhan",
+    image: "/images/Bg images/Locations/Dhanghati Goverdhan.png",
+    mapQuery: "Daan+Ghati+Mandir,Govardhan",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Daan+Ghati+Mandir%2C+Govardhan%2C+Uttar+Pradesh%2C+India",
+  },
+  {
+    place: "Nand Mahal",
+    city: "Gokul",
+    image: "/images/Bg images/Locations/Nand Mahal.png",
+    mapQuery: "Nand+Bhawan,Gokul",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Nand+Bhawan%2C+Gokul%2C+Uttar+Pradesh%2C+India",
+  },
+  {
+    place: "Nandgaon Temple",
+    city: "Nandgaon",
+    image: "/images/Bg images/Locations/Nandgaon Temple Nandgaon.png",
+    mapQuery: "Nandagram+Temple,Nandgaon",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Nandagram+Temple%2C+Nandgaon%2C+Uttar+Pradesh%2C+India",
+  },
 ];
 
 export const contacts: Person[] = [
@@ -745,4 +865,175 @@ export const contacts: Person[] = [
   { name: "Dr. Ahsas Goyal", role: "Joint Secretary", phone: "+91 9012204640" },
   { name: "Dr. Niraj Kumar Singh", role: "Joint Secretary", phone: "+91 8475985031" },
   { name: "Dr. Vibhav Varshney", role: "Joint Secretary", phone: "+91 7417540181" },
+];
+
+/* ---------------------------------------------------------------- accommodation */
+
+export interface BudgetHotel {
+  sNo: number;
+  name: string;
+  price: string;
+  contacts: string[];
+  address: string;
+  distance: string;
+  zone?: "Near GLA" | "Vrindavan" | "Mathura";
+}
+
+export const budgetHotels: BudgetHotel[] = [
+  {
+    sNo: 1,
+    name: "Prem Resort",
+    price: "Double Occupancy: ₹1,200 | Four Occupancy: ₹2,400",
+    contacts: ["7895399111"],
+    address:
+      "Near Vrindavan Chauraha (Vaishno Devi Temple), NH2, Chhatikara, Vrindavan, Mathura, U.P., India",
+    distance: "8.5 Km",
+    zone: "Vrindavan",
+  },
+  {
+    sNo: 2,
+    name: "Hotel Basera Vrindavan",
+    price: "Double Occupancy: ₹3,000",
+    contacts: ["7500022288"],
+    address: "Raman Reti Marg, Vrindavan, Mathura, U.P., India",
+    distance: "11.4 Km",
+    zone: "Vrindavan",
+  },
+  {
+    sNo: 3,
+    name: "Hotel Nutan Krishna",
+    price: "Double Occupancy: ₹1,500 | Triple Occupancy: ₹2,000",
+    contacts: ["7900277772", "8650707574"],
+    address: "Kishor Pura, Near Prem Mandir, Vrindavan, Mathura, U.P., India",
+    distance: "12.0 Km",
+    zone: "Vrindavan",
+  },
+  {
+    sNo: 4,
+    name: "Shyama Guest House",
+    price: "Double Occupancy: ₹1,200 | Triple Occupancy: ₹1,500 | Four Occupancy: ₹2,000",
+    contacts: ["9997956245", "9897473621"],
+    address: "16-A, Sector B, Govind Nagar, Near Shri Krishna Janamsthan, Mathura, U.P., India",
+    distance: "15 Km",
+    zone: "Mathura",
+  },
+  {
+    sNo: 5,
+    name: "Hotel Jayanti Dham",
+    price: "Double Occupancy: ₹1,200 | Triple Occupancy: ₹1,500 | Four Occupancy: ₹2,000",
+    contacts: ["9997956245", "9897473621"],
+    address: "841-F, Govind Nagar, Near Shri Krishna Janamsthan, Mathura, U.P., India",
+    distance: "15.1 Km",
+    zone: "Mathura",
+  },
+  {
+    sNo: 6,
+    name: "Shiv Shakti Dhaba & Residency",
+    price: "Double Occupancy: ₹1,500 | Triple Occupancy: ₹1,800",
+    contacts: ["9893081987", "9897844556"],
+    address: "NH-19, near KFC, opp. GLA University, Chaumuhan, Mathura, U.P., India",
+    distance: "1 Km",
+    zone: "Near GLA",
+  },
+  {
+    sNo: 7,
+    name: "Hotel Shiv Kripa Vrindavan",
+    price: "Single Occupancy: ₹1,500 | Double Occupancy: ₹1,800 | Triple Occupancy: ₹2,500",
+    contacts: ["8909317683", "9058687027"],
+    address:
+      "In front of 6 Shikar Temple, near Manua Baba Ashram, Sunrakh Tiraha, Vrindavan, Mathura, U.P., India",
+    distance: "12 Km",
+    zone: "Vrindavan",
+  },
+  {
+    sNo: 8,
+    name: "Shri Banke Bihari Braj Hotel",
+    price: "Single Occupancy: ₹1,500 | Double Occupancy: ₹1,800 | Triple Occupancy: ₹2,500",
+    contacts: ["8909317683", "9058687027"],
+    address:
+      "In front of 6 Shikar Temple, near Manua Baba Ashram, Sunrakh Tiraha, Vrindavan, Mathura, U.P., India",
+    distance: "12 Km",
+    zone: "Vrindavan",
+  },
+  {
+    sNo: 9,
+    name: "Hotel Shubham Majesty",
+    price: "Double Occupancy: ₹4,000",
+    contacts: ["9105504000"],
+    address: "Vidyapeeth Crossing, Gandhi Marg, Vrindavan, Mathura, U.P., India",
+    distance: "12 Km",
+    zone: "Vrindavan",
+  },
+  {
+    sNo: 10,
+    name: "Manav Seva Sadan",
+    price: "Double Occupancy: ₹800",
+    contacts: ["9412278778"],
+    address: "In front of Ram Krishan Mission Hospital, Attala Chungi Road, Mathura, U.P., India",
+    distance: "14 Km",
+    zone: "Mathura",
+  },
+  {
+    sNo: 11,
+    name: "Kanchan Palace",
+    price: "Double Occupancy: ₹1,200",
+    contacts: ["8200518500"],
+    address: "Near Banke Bihari, Vrindavan, Mathura, U.P., India",
+    distance: "11.7 Km",
+    zone: "Vrindavan",
+  },
+  {
+    sNo: 12,
+    name: "Hotel Priya Palace",
+    price: "Double Occupancy: ₹1,500 | Triple Occupancy: ₹1,800",
+    contacts: ["7351904647", "9690900029"],
+    address: "Near Prem Mandir, In Front of Kripa Dwar, Vrindavan, Mathura, U.P., India",
+    distance: "12.1 Km",
+    zone: "Vrindavan",
+  },
+  {
+    sNo: 13,
+    name: "Om Paying Guest House",
+    price: "Double Occupancy: ₹1,200",
+    contacts: ["94570-77717", "8057647886"],
+    address: "A/3, Govind Nagar, Near Shri Krishna Janamsthan, Mathura, U.P., India",
+    distance: "15.8 Km",
+    zone: "Mathura",
+  },
+  {
+    sNo: 14,
+    name: "The Mystic Palms",
+    price: "Single Occupancy: ₹3,200 | Double Occupancy: ₹4,200",
+    contacts: ["91055 07111", "70880 23333"],
+    address: "Near Mandi Samiti, Outside Transport Nagar, NH-2 / NH-19, Mathura, U.P., India",
+    distance: "18 Km",
+    zone: "Mathura",
+  },
+  {
+    sNo: 15,
+    name: "Hotel Idhayan Palace",
+    price: "Double Occupancy Std: ₹3,000 | Double Occupancy Premium: ₹4,000",
+    contacts: ["90455 99641"],
+    address:
+      "Chhatikara Road, Opposite Rukmani Vihar Main Gate, Sunrakh Bangar, Vrindavan, Mathura, U.P., India",
+    distance: "10 Km",
+    zone: "Vrindavan",
+  },
+];
+
+export const accommodationCommittee = [
+  {
+    name: "Dr. Bhupesh Chander Semwal",
+    phone: "9410575712",
+    displayPhone: "+91 9410575712",
+    email: "bhupesh.semwal@gla.ac.in",
+    role: "Accommodation Committee, IACS-2027",
+  },
+  {
+    name: "Dr. Vibhav Varshney",
+    phone: "7417540181",
+    displayPhone: "+91 7417540181",
+    email: "vibhav.varshney@gla.ac.in",
+    role: "Accommodation Committee, IACS-2027",
+  },
 ];
